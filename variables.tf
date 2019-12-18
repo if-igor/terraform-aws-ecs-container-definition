@@ -145,6 +145,16 @@ variable "dns_servers" {
   default     = null
 }
 
+variable "extra_hosts" {
+  type = list(object({
+    hostname  = string
+    ipAddress = string
+  }))
+
+  description = "Appends the mapping of hostname to IP addresses to /etc/hosts file on the container. This is a list of maps, where each map should contain a `hostname` and `ipAddress`"
+  default     = null
+}
+
 variable "ulimits" {
   type = list(object({
     name      = string
